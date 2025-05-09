@@ -135,5 +135,9 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Deskripsi%20Statistik.png" alt="Deskripsi Statistik" title="Deskripsi Statistik">
 
 3. **Menangani Missing Value**
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Missing%20Value.png" alt="Missing Value" title="Missing Value">
+   Berdasarkan gambar tersebut, tidak terdapat *missing value*.
 
-4. 
+4. **Menangani *Outliers***
+
+5. 
