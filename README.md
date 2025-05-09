@@ -50,13 +50,13 @@ Terdapat beberapa solusi yang dapat dilakukan untuk dapat mencapai tujuan dari p
 	   <img src="https://cdn-images-1.medium.com/v2/resize:fit:800/0*QmLAPLYUDcpJYwvo.png" alt="Ilustrasi Algoritma K-Nearest Neighbor" title="Ilustrasi Algoritma K-Nearest Neighbor">
 	   
 	   Perhitungan jarak ke tetangga terdekat dapat dilakukan dengan menggunakan metrik sebagai berikut:[[4]](https://www.ibm.com/id-id/think/topics/knn)
-     - *Euclidean distance*
+	     - *Euclidean distance*
        $$d(x,y)=\sqrt{\sum_{i=1}^n (x_i-y_i)^2}$$
-     - *Manhattan distance*
+	     - *Manhattan distance*
        $$d(x,y)=\sum_{i=1}^n |x_i-y_i|$$
-     - *Hamming distance*
+	     - *Hamming distance*
        $$d(x,y)=\frac{1}{n}\sum_{n=1}^{n=n} |x_i-y_i|$$
-     - *Minkowski distance*
+	     - *Minkowski distance*
        $$d(x,y)=\left(\sum_{i=1}^n |x_i-y_i|^p\right)^\frac{1}{p}$$
 		
 		Adapun kelebihan dari algoritma K-Nearest Neighbor, yaitu: [[5]](https://www.trivusi.web.id/2022/06/algoritma-knn.html)
@@ -72,3 +72,4 @@ Terdapat beberapa solusi yang dapat dilakukan untuk dapat mencapai tujuan dari p
 			
 	- **Algoritma Random Forest**
 	- **Algoritma Adaptive Boosting**
+
