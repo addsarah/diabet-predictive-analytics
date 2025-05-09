@@ -74,7 +74,7 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 	- **Algoritma Random Forest**
 	Random Forest adalah algoritma *machine learning* berbasis *ensemble learning* yang menggabungkan hasil dari banyak *decision tree* melalui proses *bagging*. Setiap pohon menghasilkan prediksi, dan hasil akhir ditentukan berdasarkan vote terbanyak. Semakin banyak jumlah pohon, semakin tinggi akurasi dan semakin kecil risiko *overfitting*.[[6]](https://www.trivusi.web.id/2022/08/algoritma-random-forest.html)
 	
-		<img src="https://www.researchgate.net/publication/354354484/figure/fig4/AS:1080214163595269@1634554534720/Illustration-of-random-forest-trees.jpg" alt="Algoritma Random Forest" title="Algortima Random Forest"> 
+		<img src="https://miro.medium.com/v2/resize:fit:1400/1*wDKMZMDywDP_iQ0ZiXr34g.jpeg" alt="Algoritma Random Forest" title="Algortima Random Forest"> 
 
 		Cara kerja algoritma Random Forest :
 		- Algoritma memilih sampel acak dari dataset yang disediakan.
