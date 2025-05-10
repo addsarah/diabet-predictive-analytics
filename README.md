@@ -81,7 +81,7 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 		- Membuat decision tree untuk setiap sampel yang dipilih. Kemudian akan didapatkan hasil prediksi dari setiap decision tree yang telah dibuat.
 		- Dilakukan proses voting untuk setiap hasil prediksi. Untuk masalah klasifikasi menggunakan modus (nilai yg paling sering muncul), sedangkan untuk masalah regresi akan menggunakan mean (nilai rata-rata).
 		-  Algoritma akan memilih hasil prediksi yang paling banyak dipilih (vote terbanyak) sebagai prediksi akhir.[[6]](https://www.trivusi.web.id/2022/08/algoritma-random-forest.html)
-		- Setelah dilakukan pelatihan, prediksi untuk sampel yang tidak terlihat ($x'$) dapat dibuat dengan menghitung rata-rata prediksi dari semua pohon setiap individu model pada $x'$. [[7]](https://en.wikipedia.org/wiki/Random_forest#Bagging 'Random Forest - Bagging')
+		- Setelah dilakukan pelatihan, prediksi untuk sampel yang tidak terlihat ($x'$) dapat dibuat dengan menghitung rata-rata prediksi dari semua pohon setiap individu model pada $x'$. [[7]](https://www.ibm.com/think/topics/random-forest)
      $$\hat{f}=\frac{1}{B}\sum_{b=1}^{B} f_b(x^{'})$$
 		
 	- **Algoritma Adaptive Boosting**
@@ -91,7 +91,7 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 	
 	Algoritma AdaBoost mengacu kepada metode tertentu untuk melakukan pelatihan *classifier* yang di-*boosted*. Pengklasifikasian tersebut adalah pengklasifikasian dalam bentuk, 
      $$F_T(x)=\sum_{t=q}^{T}f_t(x)$$
-     di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[9]](https://en.wikipedia.org/wiki/AdaBoost#Training 'AdaBoost - Training')
+     di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[9]](https://aws.amazon.com/id/what-is/boosting/)
 
 ## Data Understanding
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Diabetes%20Clinical%20Dataset%20Kaggle%20Dataset.png" alt="Diabetes Clinical Dataset Kaggle Dataset" title="Diabetes Clinical Dataset Kaggle Dataset">
@@ -376,11 +376,11 @@ Kesimpulannya adalah model yang digunakan untuk melakukan prediksi **diabetes (b
 
 [6] Algoritma Random Forest: Pengertian dan Kegunaannya. (2022, September 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2022/08/algoritma-random-forest.html
 
-[7] Random forest. (n.d.). Wikipedia. Retrieved May 09, 2025, from https://en.wikipedia.org/wiki/Random_forest#Bagging
+[7] What Is Random Forest? (n.d.). IBM. Retrieved May 09, 2025, from https://www.ibm.com/think/topics/random-forest
 
 [8] Algoritma AdaBoost: Pengertian, Cara Kerja, dan Kegunaannya. (2023, July 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2023/07/algoritma-adaboost.html
 
-[9] Freund, Y., & Schapire, R. (n.d.). AdaBoost. Wikipedia. Retrieved May 09, 2025, from https://en.wikipedia.org/wiki/AdaBoost#Training
+[9] Apa itu Boosting? - Penjelasan tentang Boosting dalam Machine Learning? (n.d.). AWS. Retrieved May 09, 2025, from https://aws.amazon.com/id/what-is/boosting/
 
 
 
