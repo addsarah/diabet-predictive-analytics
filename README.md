@@ -182,7 +182,7 @@ Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan men
 
 	<br>
 	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Location.png" alt="Univariate Analysis Location" title="Univariate Analysis Location">
-	Distribusi pasien tersebar cukup merata di seluruh negara bagian AS. Lokasi dengan jumlah pasien tertinggi antara lain Nebraska, New Jersey, dan North Dakota, masing-masing menyumbang sekitar 2.1% dari total data. Sementara itu, lokasi dengan jumlah pasien paling sedikit adalah Wisconsin (hanya 2 sampel atau 0.0%) dan Virgin Islands (0.9%). Hal ini menunjukkan bahwa sebagian besar data berasal dari wilayah yang beragam, namun terdapat perbedaan jumlah sampel yang signifikan antar lokasi.
+Distribusi pasien tersebar cukup merata di seluruh negara bagian AS. Lokasi dengan jumlah pasien tertinggi antara lain Nebraska, New Jersey, dan North Dakota, masing-masing menyumbang sekitar 2.1% dari total data. Sementara itu, lokasi dengan jumlah pasien paling sedikit adalah Wisconsin (hanya 2 sampel atau 0.0%) dan Virgin Islands (0.9%). Hal ini menunjukkan bahwa sebagian besar data berasal dari wilayah yang beragam, namun terdapat perbedaan jumlah sampel yang signifikan antar lokasi.
 	
 <br>
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Smoking%20History.png" alt="Univariate Analysis Smoking History" title="Univariate Analysis Smoking History">
