@@ -83,16 +83,17 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 		-  Algoritma akan memilih hasil prediksi yang paling banyak dipilih (vote terbanyak) sebagai prediksi akhir.[[6]](https://www.trivusi.web.id/2022/08/algoritma-random-forest.html)
 		- Setelah dilakukan pelatihan, prediksi untuk sampel yang tidak terlihat ($x'$) dapat dibuat dengan menghitung rata-rata prediksi dari semua pohon setiap individu model pada $x'$. 
      $$\hat{f}=\frac{1}{B}\sum_{b=1}^{B} f_b(x^{'})$$ [[7]](https://www.ibm.com/think/topics/random-forest)
-     Kelebihan dari Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
-			 - Dengan menggunakan teknik bootstrap aggregating (bagging) dan pemilihan fitur acak, Random Forest dapat mengurangi varians dalam model dan meningkatkan generalisasi pada data baru.
-			 -  Random Forest menggabungkan beberapa pohon keputusan yang independen, ia memiliki kemampuan yang lebih baik untuk menangani noise dan variasi dalam data, sehingga menghasilkan prediksi yang lebih konsisten dan andal.
-			 - Dengan menganalisis sejauh mana setiap fitur berkontribusi dalam memisahkan kelas target, Random Forest dapat memberikan insight berguna tentang fitur mana yang paling informatif.
-			 - Dalam Random Forest, pengambilan sampel acak dan pembobotan kelas dapat digunakan untuk mengurangi efek ketidakseimbangan data dan menghasilkan prediksi yang lebih akurat untuk kelas yang kurang representatif.
 
-			Kekurangan Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
-			 - Random Forest memiliki kemampuan untuk menghasilkan prediksi yang akurat. Namun, interpretabilitas model bisa menjadi tantangan. Karena Random Forest terdiri dari banyak pohon keputusan yang digabungkan, sehingga sulit untuk secara langsung menginterpretasikan pengaruh setiap fitur dalam membuat keputusan. 
-			 - Random Forest memiliki beberapa parameter yang perlu dikonfigurasi, seperti jumlah pohon dalam ensambel, jumlah fitur yang diambil secara acak, dan kriteria pemisahan pada setiap simpul pohon. Memilih parameter yang optimal dapat memerlukan eksperimen dan tuning yang cermat, terutama jika tidak ada pengetahuan sebelumnya tentang dataset yang digunakan.
-			 - Random Forest mungkin menghadapi tantangan dalam menangani data dengan dimensi yang sangat tinggi, yaitu ketika jumlah fitur sangat besar dibandingkan dengan jumlah sampel data yang tersedia. Dalam kasus seperti itu, pengambilan sampel acak dan pemilihan fitur acak mungkin tidak efektif dalam mengekstraksi pola yang relevan dan menghasilkan prediksi yang akurat.
+    	Kelebihan dari Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
+		- Dengan menggunakan teknik bootstrap aggregating (bagging) dan pemilihan fitur acak, Random Forest dapat mengurangi varians dalam model dan meningkatkan generalisasi pada data baru.
+		-  Random Forest menggabungkan beberapa pohon keputusan yang independen, ia memiliki kemampuan yang lebih baik untuk menangani noise dan variasi dalam data, sehingga menghasilkan prediksi yang lebih konsisten dan andal.
+		- Dengan menganalisis sejauh mana setiap fitur berkontribusi dalam memisahkan kelas target, Random Forest dapat memberikan insight berguna tentang fitur mana yang paling informatif.
+		- Dalam Random Forest, pengambilan sampel acak dan pembobotan kelas dapat digunakan untuk mengurangi efek ketidakseimbangan data dan menghasilkan prediksi yang lebih akurat untuk kelas yang kurang representatif.
+    
+   		Kekurangan Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
+		- Random Forest memiliki kemampuan untuk menghasilkan prediksi yang akurat. Namun, interpretabilitas model bisa menjadi tantangan. Karena Random Forest terdiri dari banyak pohon keputusan yang digabungkan, sehingga sulit untuk secara langsung menginterpretasikan pengaruh setiap fitur dalam membuat keputusan. 
+		- Random Forest memiliki beberapa parameter yang perlu dikonfigurasi, seperti jumlah pohon dalam ensambel, jumlah fitur yang diambil secara acak, dan kriteria pemisahan pada setiap simpul pohon. Memilih parameter yang optimal dapat memerlukan eksperimen dan tuning yang cermat, terutama jika tidak ada pengetahuan sebelumnya tentang dataset yang digunakan.
+		- Random Forest mungkin menghadapi tantangan dalam menangani data dengan dimensi yang sangat tinggi, yaitu ketika jumlah fitur sangat besar dibandingkan dengan jumlah sampel data yang tersedia. Dalam kasus seperti itu, pengambilan sampel acak dan pemilihan fitur acak mungkin tidak efektif dalam mengekstraksi pola yang relevan dan menghasilkan prediksi yang akurat.
 
 		
 	- **Algoritma Adaptive Boosting**
@@ -100,17 +101,21 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 
 	<img src="https://almablog-media.s3.ap-south-1.amazonaws.com/image_28_7cf514b000.png" alt="Algoritma AdaBoost" title="Algoritma AdaBoost"> 
 	
+
 	Algoritma AdaBoost mengacu kepada metode tertentu untuk melakukan pelatihan *classifier* yang di-*boosted*. Pengklasifikasian tersebut adalah pengklasifikasian dalam bentuk, 
      $$F_T(x)=\sum_{t=q}^{T}f_t(x)$$
      di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[10]](https://aws.amazon.com/id/what-is/boosting/)
      
-     Adapun Kelebihan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
-	 - Adaboost dapat secara signifikan meningkatkan akurasi prediksi dalam pemodelan machine learning. Dengan menggabungkan weak learners menjadi strong learner, Adaboost dapat mengatasi kesalahan klasifikasi dan meningkatkan kemampuan prediksi model.
+
+   	Adapun Kelebihan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
+
+   	- Adaboost dapat secara signifikan meningkatkan akurasi prediksi dalam pemodelan machine learning. Dengan menggabungkan weak learners menjadi strong learner, Adaboost dapat mengatasi kesalahan klasifikasi dan meningkatkan kemampuan prediksi model.
 	 - Adaboost efektif dalam menangani data yang kompleks dan memiliki interaksi fitur yang rumit. Dalam kasus di mana hubungan antara fitur-fitur input dan variabel output tidak sederhana, Adaboost dapat menangkap pola yang lebih kompleks daripada weak learners individu.
 	 - Dengan memberikan bobot pada contoh-contoh yang salah diklasifikasikan, Adaboost dapat mengurangi risiko overfitting. Hal ini membantu model untuk tidak terlalu fokus pada contoh-contoh pelatihan yang sulit dan memperbaiki generalisasi pada data uji.
 	 
-	 Adapun kekurangan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
-	 -  Adaboost cenderung sensitif terhadap data yang mengandung noise atau outlier. Kehadiran contoh-contoh yang tidak representatif atau gangguan dapat mempengaruhi pembelajaran dan menghasilkan model yang kurang akurat.
+
+	Adapun kekurangan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
+	-  Adaboost cenderung sensitif terhadap data yang mengandung noise atau outlier. Kehadiran contoh-contoh yang tidak representatif atau gangguan dapat mempengaruhi pembelajaran dan menghasilkan model yang kurang akurat.
 	 - Jika dataset pelatihan sangat kecil, terdapat risiko overfitting pada Adaboost. Model yang terlalu kompleks dapat dengan mudah "menghafal" contoh-contoh pelatihan dan gagal dalam generalisasi pada data baru.
 	 - Adaboost melibatkan iterasi berulang untuk melatih weak learners dan memperbarui bobot contoh-contoh pelatihan. Oleh karena itu, waktu pelatihan algoritma ini cenderung lebih lama dibandingkan dengan beberapa algoritma machine learning lainnya.
 
@@ -251,15 +256,18 @@ Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan men
 
 	<br>
 	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Location.png" alt="Univariate Analysis Location" title="Univariate Analysis Location">
-	Distribusi pasien tersebar cukup merata di seluruh negara bagian AS. Lokasi dengan jumlah pasien tertinggi antara lain Nebraska, New Jersey, dan North Dakota, masing-masing menyumbang sekitar 2.1% dari total data. Sementara itu, lokasi dengan jumlah pasien paling sedikit adalah Wisconsin (hanya 2 sampel atau 0.0%) dan Virgin Islands (0.9%). Hal ini menunjukkan bahwa sebagian besar data berasal dari wilayah yang beragam, namun terdapat perbedaan jumlah sampel yang signifikan antar lokasi.
+	
+ 	Distribusi pasien tersebar cukup merata di seluruh negara bagian AS. Lokasi dengan jumlah pasien tertinggi antara lain Nebraska, New Jersey, dan North Dakota, masing-masing menyumbang sekitar 2.1% dari total data. Sementara itu, lokasi dengan jumlah pasien paling sedikit adalah Wisconsin (hanya 2 sampel atau 0.0%) dan Virgin Islands (0.9%). Hal ini menunjukkan bahwa sebagian besar data berasal dari wilayah yang beragam, namun terdapat perbedaan jumlah sampel yang signifikan antar lokasi.
 	
 <br>
 	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Smoking%20History.png" alt="Univariate Analysis Smoking History" title="Univariate Analysis Smoking History">
-	Mayoritas data tidak memiliki informasi riwayat merokok (No Info) sebanyak 38.2%, diikuti oleh pasien yang tidak pernah merokok (never) sebesar 34.5%. Sementara itu, kategori lainnya seperti current (masih merokok), former (mantan perokok), not current, dan ever (pernah merokok) memiliki proporsi yang jauh lebih kecil, masing-masing kurang dari 10%. Hal ini menunjukkan bahwa lebih dari setengah data berasal dari pasien yang tidak pernah merokok atau tidak memiliki informasi lengkap terkait kebiasaan merokok.
+	
+ Mayoritas data tidak memiliki informasi riwayat merokok (No Info) sebanyak 38.2%, diikuti oleh pasien yang tidak pernah merokok (never) sebesar 34.5%. Sementara itu, kategori lainnya seperti current (masih merokok), former (mantan perokok), not current, dan ever (pernah merokok) memiliki proporsi yang jauh lebih kecil, masing-masing kurang dari 10%. Hal ini menunjukkan bahwa lebih dari setengah data berasal dari pasien yang tidak pernah merokok atau tidak memiliki informasi lengkap terkait kebiasaan merokok.
 
 <br>
 	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Race.png" alt="Univariate Analysis Race" title="Univariate Analysis Race">
-	Setiap kategori ras seperti AfricanAmerican, Caucasian, Hispanic, Asian, dan Other memiliki jumlah sampel yang hampir sama, dengan masing-masing berkisar 19.8% hingga 20.1%. Hal ini menunjukkan bahwa data telah dikonstruksi secara proporsional antar kelompok ras, sehingga tidak terjadi ketimpangan distribusi yang dapat memengaruhi performa model secara bias terhadap kelompok tertentu.
+	
+ Setiap kategori ras seperti AfricanAmerican, Caucasian, Hispanic, Asian, dan Other memiliki jumlah sampel yang hampir sama, dengan masing-masing berkisar 19.8% hingga 20.1%. Hal ini menunjukkan bahwa data telah dikonstruksi secara proporsional antar kelompok ras, sehingga tidak terjadi ketimpangan distribusi yang dapat memengaruhi performa model secara bias terhadap kelompok tertentu.
 
 <br>
 	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis.png" alt="Univariate Analysis" title="Univariate Analysis">
@@ -445,7 +453,7 @@ Dari visualisasi diagram di atas dapat disimpulkan bahwa,
 
 1. Model dengan algoritma Random Forest memberikan nilai error yang paling kecil, yaitu sebesar 0.000016 pada training error, dan 0.000016 pada testing error. Ini menunjukkan bahwa model mampu melakukan prediksi dengan baik dan memiliki generalisasi yang kuat.
 
-2. Model dengan algoritma K-Nearest Neighbor memiliki tingkat error yang sedang di antara dua algoritma lainnya, dengan nilai training error sebesar 0.000035, dan testing error sebesar 0.000034. Meskipun selisih error kecil, performa Boosting masih berada di bawah Random Forest dalam hal akurasi prediksi keseluruhan.
+2. Model dengan algoritma K-Nearest Neighbor memiliki tingkat error yang sedang di antara dua algoritma lainnya, dengan nilai training error sebesar 0.000035, dan testing error sebesar 0.000034. Meskipun selisih error kecil, performa Boosting masih berada di bawah Adaptive Boosting dalam hal akurasi prediksi keseluruhan.
 
 3. Model dengan algoritma Adaptive Boosting mengalami error yang lebih besar dibandingkan Random Forest dan K-Nearest Neighbor, dengan nilai training error sebesar 0.000053, dan testing error sebesar 0.000048.
 
