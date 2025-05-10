@@ -149,10 +149,13 @@ Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hype
 
 Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `hypertension`, `heart_disease`, dan `bmi`. 
 
-Sehingga dilakukan proses pembersihan *outliers* dengan metode IQR (*Inter Quartile Range*). $$IQR=Q_3-Q_1$$
+Sehingga dilakukan proses pembersihan *outliers* dengan metode IQR (*Inter Quartile Range*). 
+$$IQR=Q_3-Q_1$$
    
 Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan menggunakan,
+
    $BatasBawah=Q_1-1.5*IQR$
+   
    $BatasAtas=Q_3-1.5*IQR$
    
    Setelah dilakukan pembersihan *outliers*, dilakukan kembali visualisasi *outliers* untuk melakukan pengecekan kembali sebagai berikut,
