@@ -247,7 +247,9 @@ Pada tahap persiapan data atau *data preparation* dilakukan berdasarkan penjelas
 
 	Kemudian diperoleh hasil pembagian data masing-masing, yaitu sebagai berikut,
 	```python
-	Total seluruh sampel : 66511 Total data train : 59859 Total data test : 6652
+	Total seluruh sampel : 66511 
+	Total data train : 59859 
+	Total data test : 6652
 	```
 2. **Standarisasi pada Fitur Numerik**  
    Standarisasi fitur numerik menggunakan `StandardScaler` untuk mencegah terjadinya penyimpangan nilai data yang cukup besar. Proses standarisasi tersebut dilakukan dengan mengurangkan nilai rata-rata, lalu membaginya dengan standar deviasi atau simpangan baku untuk menggeser distribusi. Proses standarisasi akan menghasilkan distribusi dengan nilai rata-rata menjadi 0, dan nilai standar deviasi menjadi 1.
