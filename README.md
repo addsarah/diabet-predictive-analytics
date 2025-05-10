@@ -190,7 +190,22 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
 
 4. **Menangani *Outliers***
 
-	*Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
+	*Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. 
+
+	Memisahkan data pasien dengan label diabetes dan non diabetes
+	```python
+	df_diabetes = diabet[diabet['diabetes'] == 1]
+	df_ndiabetes = diabet[diabet['diabetes'] == 0]
+	```
+	
+| diabetes | count |
+|----------|-------|
+| 0        | 91500 |
+| 1        | 8500  |
+
+
+	
+ Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Diabetes - Sebelum" title="Menangani Outliers Diabetes - Sebelum"> 
 	
  Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hypertension`, `heart_disease`, dan `bmi`. 
