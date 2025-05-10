@@ -191,10 +191,10 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
 4. **Menangani *Outliers***
 *Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Diabetes - Sebelum" title="Menangani Outliers Diabetes - Sebelum"> 
-	Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hypertension`, `heart_disease`, dan `bmi`. 
+	Berdasarkan gambar tersebut, terdapat *outliers* pada fitur year, age, hypertension, heart_disease, dan bmi. 
 
 
-	`non-diabetes`
+*non-diabetes*
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Non%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Non Diabetes - Sesudah" title="Menangani Outliers Non Diabetes - Sesudah">
 
 Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `hypertension`, `heart_disease`, dan `bmi`. 
