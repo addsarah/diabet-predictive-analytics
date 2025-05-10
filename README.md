@@ -213,5 +213,146 @@ Setiap kategori ras seperti AfricanAmerican, Caucasian, Hispanic, Asian, dan Oth
 - `diabetes` sangat tidak seimbang, dimana mayoritas data menunjukkan pasien tidak menderita diabetes (nilai 0), dan hanya sebagian kecil yang menderita diabetes (nilai 1).
 
 
-6. **Multivariate Analysis**
+6. **Multivariate Analysis**  
+   Melakukan visualisasi distribusi data pada fitur-fitur numerik dari *dataframe* `diabet`. Visualisasi dilakukan dengan bantuan *library* `seaborn` `pairplot` menggunakan parameter `diag_kind`, yaitu `kde`, untuk melihat perkiraan distribusi probabilitas antar fitur numerik.
+   <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Multivariate%20Analysis.png" alt="Multivariate Analysis" title="Multivariate Analysis">
 7. **Correlation Matrix with Heatmap**
+ Melakukan pengecekan korelasi antar fitur numerik dengan menggunakan visualisasi diagram *heatmap* *correlation matrix*.
+ <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Correlation%20Matrix%20with%20Heatmap.png" alt="Correlation Matrix with Heatmap" title="Correlation Matrix with Heatmap">
+	  Dapat dilihat pada diagram *heatmap* di atas memiliki *range* atau rentang angka dari 1.0 hingga 0.08 dengan keterangan sebagai berikut,
+   - Jika semakin mendekati 1, maka korelasi antar fitur numerik semakin kuat bernilai positif.
+   - Jika semakin mendekati 0, maka korelasi antar fitur numerik semakin rendah.
+   - Jika semakin mendekati -1, maka korelasi antar fitur numerik semakin kuat bernilai negatif.
+   
+   Jika korelasi bernilai positif, berarti nilai kedua fitur numerik cenderung meningkat bersama-sama.  
+   
+   Jika korelasi bernilai negatif, berarti nilai salah satu fitur numerik cenderung meningkat ketika nilai fitur numerik yang lain menurun.
+   
+## Data Preparation
+
+Pada tahap persiapan data atau *data preparation* dilakukan berdasarkan penjelasan yang sudah dipaparkan pada bagian [Solution Statements](#solution-statements "Solution Statements"). Tahap ini penting dilakukan untuk mempersiapkan data sehingga dapat digunakan untuk melatih model *machine learning* dengan baik. Berikut adalah dua tahapan data preparation yang dilakukan, yaitu,
+
+1. **Split Data**  
+   Mengubah fitur kategorikal menjadi numerik menggunakan Label Encoding agar semua data dalam dataset bertipe numerik.
+   ```python
+   categorical_features = ['gender', 'location', 'smoking_history', 'race']
+   le = LabelEncoder()
+   df_diabet[feature] = le.fit_transform(df_diabet[feature])
+   df_diabet.head()
+   ```
+   Pembagian data dilakukan untuk memisahkan data keseluruhan menjadi dua (2) bagian, yaitu data latih (*training data*) dan data uji (*testing data*) dengan perbandingan rasio sebesar 90 : 10 menggunakan `train_test_split`.
+	```python
+	xTrain, xTest, yTrain, yTest = train_test_split(x, y, test_size=0.1, random_state=123)
+	```   
+
+	Kemudian diperoleh hasil pembagian data masing-masing, yaitu sebagai berikut,
+	```python
+	Total seluruh sampel : 66511 Total data train : 59859 Total data test : 6652
+	```
+2. **Standarisasi pada Fitur Numerik**  
+   Standarisasi fitur numerik menggunakan `StandardScaler` untuk mencegah terjadinya penyimpangan nilai data yang cukup besar. Proses standarisasi tersebut dilakukan dengan mengurangkan nilai rata-rata, lalu membaginya dengan standar deviasi atau simpangan baku untuk menggeser distribusi. Proses standarisasi akan menghasilkan distribusi dengan nilai rata-rata menjadi 0, dan nilai standar deviasi menjadi 1.
+	```python
+	scaler = StandardScaler()
+	scaler.fit(xTrain[numericalFeatures])
+	xTrain[numericalFeatures] = scaler.transform(xTrain.loc[:, numericalFeatures])
+	```
+	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Standarisasi%20pada%20Fitur%20Numerik.png" alt="Standarisasi pada Fitur Numerik" title="Standarisasi pada Fitur Numerik">
+
+	```python
+	xTrain[numericalFeatures].describe().round(4)
+	```
+	
+	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Deskripsi%20Statistik%20setelah%20Standarisasi.png" alt="Deskripsi Statistik setelah Standarisasi" title="Deskripsi Statistik setelah Standarisasi">
+
+
+## Modelling
+
+Setelah dilakukannya tahap *data preparation*, selanjutnya adalah melakukan tahap persiapan model terlebih dahulu sebelum mengembangkan model menggunakan algoritma yang telah ditentukan.
+
+Tahap persiapan *dataframe* untuk analisis model menggunakan parameter `index`, yaitu train_mse dan test_mse, serta parameter `columns` yang merupakan algoritma yang akan digunakan untuk melakukan prediksi, yaitu algoritma K-Nearest Neighbor (KNN), Random Forest, dan Adaptive Boosting (AdaBoost).
+```python
+models = pd.DataFrame(
+    index   = ['train_mse', 'test_mse'],
+    columns = ['KNN', 'RandomForest', 'Boosting']
+)
+```
+
+Kemudian terapkan ketiga algoritma ke dalam model tersebut.
+
+1. **K-Nearest Neighbor (KNN) Algorithm**  
+   Pada algoritma K-Nearest Neighbor digunakan parameter `n_neighbors` dengan nilai k = 10 tetangga dan `metric` bawaan, yaitu Euclidean.
+   
+   ```python
+   knn = KNeighborsRegressor(n_neighbors=10)
+   ```
+   
+   Kemudian akan dilakukan analisis prediksi *error* menggunakan *Mean Squared Error* (MSE) pada data latih (*training data*) dan data uji (*testing data*)
+   
+2. **Random Forest Algorithm**  
+   Pada algoritma K-Nearest Neighbor digunakan parameter `n_estimator` dengan jumlah 50 *trees* (pohon), `max_depth` dengan nilai kedalaman atau panjang pohon 16, `random_state` dengan nilai 55, dan `n_jobs` yang bernilai -1 (pekerjaan dilakukan secara paralel).
+   
+   ```python
+   rf = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
+   ```
+   
+   Kemudian akan dilakukan analisis prediksi *error* menggunakan *Mean Squared Error* (MSE) pada data latih (*training data*) dan data uji (*testing data*)
+   
+3. **Adaptive Boosting (AdaBoost) Algorithm**  
+   Pada algoritma K-Nearest Neighbor digunakan parameter `learning_rate` dengan nilai bobot setiap *regressor* adalah 0.05, dan `random_state` dengan nilai 55.
+   
+   ```python
+   boosting = AdaBoostRegressor(learning_rate=0.05, random_state=55)
+   ```
+   
+   Kemudian akan dilakukan analisis prediksi *error* menggunakan *Mean Squared Error* (MSE) pada data latih (*training data*) dan data uji (*testing data*)
+
+Ketiga model yang telah dibangun di atas, akan dilakukan pengujian kinerja untuk masing-masing model yang menggunakan algoritma K-Nearest Neighbor, algoritma Random Forest, dan algoritma Adaptive Boosting. Dari ketiga model tersebut akan diperoleh satu (1) model dengan hasil prediksi yang paling baik dan tingkat *error* yang paling rendah.
+
+## Evaluation
+
+Pada tahap evaluasi model, akan dilakukan pengujian untuk melihat algoritma mana yang memberikan hasil prediksi paling baik dan dengan tingkat *error* yang paling rendah. Sebelumnya, akan dilakukan proses standarisasi atau *scaling* pada fitur numerik data uji (*testing data*) agar nilai rata-rata (*mean*) bernilai 0, dan varians bernilai 1.
+
+```python
+xTest.loc[:, numericalFeatures] = scaler.transform(xTest[numericalFeatures])
+```
+
+Kemudian evaluasi dari ketiga model, yaitu algoritma K-Nearest Neighbor, Random Forest, dan Adaptive Boosting (AdaBoost) untuk masing-masing data latih (*training data*) dan data uji (*testing data*) dengan melihat tingkat *error*-nya menggunakan *Mean Squared Error* (MSE),
+
+$$MSE=\frac{1}{N}\sum_{i=1}^{N} (y_i-y\\_pred_i)^2$$
+
+di mana, nilai $N$ adalah jumlah *dataset*, nilai $y_i$ merupakan nilai sebenarnya, dan $y\\_pred$ yaitu nilai prediksinya.
+
+Penggunaan metode metrik *Mean Squared Error* (MSE) memiliki kelebihan, yaitu cukup sederhana dan mudah dipahami dalam melakukan perhitungan. Meskipun begitu, terdapat kelemahan pada metrik ini, yaitu hasil akurasi prediksi yang kecil karena tidak dapat membandingan hasil peramalan tersebut dengan kenyataannya. 
+
+```python
+mse = pd.DataFrame(columns=['train', 'test'], index=['KNN', 'RF', 'Boosting'])
+modelDict = {'KNN': knn, 'RF': rf, 'Boosting': boosting}
+for name, model in modelDict.items():
+    mse.loc[name, 'train'] = mean_squared_error(y_true=yTrain, y_pred=model.predict(xTrain))/1e3
+    mse.loc[name, 'test']  = mean_squared_error(y_true=yTest,  y_pred=model.predict(xTest))/1e3
+```
+
+
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Evaluation.png" alt="Evaluation" title="Evaluation">
+
+Dari data tabel tersebut dapat divisualisasikan pada grafik batang berikut.
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Evaluation%20Graph.png" alt="Evaluation Graph" title="Evaluation Graph">
+
+Dari visualisasi diagram di atas dapat disimpulkan bahwa,
+
+1. Model dengan algoritma Random Forest memberikan nilai error yang paling kecil, yaitu sebesar 0.000016 pada training error, dan 0.000016 pada testing error. Ini menunjukkan bahwa model mampu melakukan prediksi dengan baik dan memiliki generalisasi yang kuat.
+
+2. Model dengan algoritma K-Nearest Neighbor memiliki tingkat error yang sedang di antara dua algoritma lainnya, dengan nilai training error sebesar 0.000035, dan testing error sebesar 0.000034. Meskipun selisih error kecil, performa Boosting masih berada di bawah Random Forest dalam hal akurasi prediksi keseluruhan.
+
+3. Model dengan algoritma Adaptive Boosting mengalami error yang lebih besar dibandingkan Random Forest dan K-Nearest Neighbor, dengan nilai training error sebesar 0.000053, dan testing error sebesar 0.000048.
+
+Selanjutnya adalah pengujian prediksi dengan menggunakan beberapa nilai diabetes `df_diabet` dari data uji (*testing*)
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Testing%20Model.png" alt="Testing Model" title="Testing Model">
+
+Dapat dilihat bahwa prediksi pada model dengan algoritma **Random Forest** memberikan hasil yang **paling mendekati nilai `y_true`** jika dibandingkan dengan model algoritma lainnya.
+  
+Nilai `y_true` adalah **0**, yang berarti pasien tersebut **tidak menderita diabetes**, dan ketiga model (`KNN`, `Random Forest`, dan `Boosting`) sama-sama menghasilkan prediksi sebesar **0.0** yang menunjukkan bahwa model memperkirakan pasien tidak mengidap diabetes.
+
+Meskipun dalam kasus ini seluruh model memberikan hasil prediksi yang identik dengan nilai sebenarnya, model **Random Forest** tetap dianggap sebagai model dengan **tingkat *error* paling rendah secara keseluruhan**, berdasarkan evaluasi sebelumnya pada metrik MSE (*Mean Squared Error*).
+
+Kesimpulannya adalah model yang digunakan untuk melakukan prediksi **diabetes (binary classification)** memberikan hasil terbaik ketika menggunakan algoritma **Random Forest**, karena mampu menghasilkan prediksi yang akurat dan konsisten dengan nilai `y_true`.
