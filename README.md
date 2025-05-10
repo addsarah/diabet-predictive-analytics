@@ -1,4 +1,4 @@
-﻿# Laporan Proyek Pertama Machine Learning Expert Dicoding: Predictive Analytics - Diabet (split diabet n non) - Sarah Adibah
+# Laporan Proyek Pertama Machine Learning Expert Dicoding: Predictive Analytics - Diabet (split diabet n non) - Sarah Adibah
 
 ## Domain Proyek
 
@@ -33,12 +33,12 @@ Berdasarkan rumusan masalah yang telah dipaparkan di atas, maka didapatkan tujua
 
 ## Solution Statements
 Terdapat beberapa solusi yang dapat dilakukan untuk dapat mencapai tujuan dari proyek ini, yaitu:
-1. Tahap persiapan data (*data preparation*) dilakukan dengan beberapa langkah berikut:
-   - Membagi dataset menjadi dua bagian, yaitu *training data* dan *testing data* dengan rasio 90:10, untuk keperluan pelatihan dan pengujian model.
-   - Melakukan *standarisasi* pada fitur numerik seperti `age`, `bmi`, `hbA1c_level`, dan `blood_glucose_level` guna menghindari dominasi fitur tertentu karena skala yang berbeda.
-   - Melakukan *encoding* pada fitur kategorikal seperti `gender`, `smoking_history`, `race`, dan `location` agar bisa diproses oleh algoritma *machine learning*.
+ - Tahap persiapan data (*data preparation*) dilakukan dengan beberapa langkah berikut:
+ - Membagi dataset menjadi dua bagian, yaitu *training data* dan *testing data* dengan rasio 90:10, untuk keperluan pelatihan dan pengujian model.
+ - Melakukan *standarisasi* pada fitur numerik seperti `age`, `bmi`, `hbA1c_level`, dan `blood_glucose_level` guna menghindari dominasi fitur tertentu karena skala yang berbeda.
+ - Melakukan *encoding* pada fitur kategorikal seperti `gender`, `smoking_history`, `race`, dan `location` agar bisa diproses oleh algoritma *machine learning*.
 
-2. Tahap pembangunan model *machine learning* dilakukan dengan menggunakan tiga algoritma berbeda adalah K-Nearest Neighbor (KNN), Random Forest, dan Adaptive Boosting (AdaBoost). Seluruh model akan dievaluasi menggunakan metrik seperti *Mean Squared Error (MSE)* dan akurasi, lalu dibandingkan untuk menentukan algoritma terbaik dalam memprediksi status diabetes berdasarkan data klinis dan demografis.
+ - Tahap pembangunan model *machine learning* dilakukan dengan menggunakan tiga algoritma berbeda adalah K-Nearest Neighbor (KNN), Random Forest, dan Adaptive Boosting (AdaBoost). Seluruh model akan dievaluasi menggunakan metrik seperti *Mean Squared Error (MSE)* dan akurasi, lalu dibandingkan untuk menentukan algoritma terbaik dalam memprediksi status diabetes berdasarkan data klinis dan demografis.
 	- **Algoritma K-Nearest Neighbor**
 	Sesuai dengan namanya, yaitu "sejumlah k-tetangga terdekat", **K-Nearest Neighbor (KNN)** adalah algoritma _machine learning_ yang termasuk dalam kategori *supervised learning*. Algoritma ini bekerja dengan cara mengelompokkan data berdasarkan kemiripan antara data baru dan sejumlah data (`k`) terdekat di dalam dataset. [[3]](https://dqlab.id/fleksibilitas-kunci-keunggulan-algoritma-k-nearest-neighbors-knn) 
 Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut: 
@@ -65,7 +65,7 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 		- Mudah menyesuaikan diri dengan perubahan dalam dataset. 
 		- KNN hanya memiliki dua hyperparameter utama: nilai K (jumlah tetangga terdekat yang akan diperhitungkan) dan metrik jarak yang digunakan. 
 
-		Adapun kelemahan dari algoritma K-Nearest Neighbor, yaitu: [[5]](https://www.trivusi.web.id/2022/06/algoritma-knn.html) 
+		Adapun kekurangan dari algoritma K-Nearest Neighbor, yaitu: [[5]](https://www.trivusi.web.id/2022/06/algoritma-knn.html) 
 		- Tidak cocok untuk dataset berukuran besar. 
 		- Tidak cocok untuk dimensi tinggi.
 		- Tanpa penskalaan yang benar ([standarisasi dan normalisasi](https://www.trivusi.web.id/2022/09/normalisasi-data.html)), KNN dapat menghasilkan prediksi yang salah karena beberapa fitur memiliki skala yang dominan.
@@ -81,17 +81,38 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
 		- Membuat decision tree untuk setiap sampel yang dipilih. Kemudian akan didapatkan hasil prediksi dari setiap decision tree yang telah dibuat.
 		- Dilakukan proses voting untuk setiap hasil prediksi. Untuk masalah klasifikasi menggunakan modus (nilai yg paling sering muncul), sedangkan untuk masalah regresi akan menggunakan mean (nilai rata-rata).
 		-  Algoritma akan memilih hasil prediksi yang paling banyak dipilih (vote terbanyak) sebagai prediksi akhir.[[6]](https://www.trivusi.web.id/2022/08/algoritma-random-forest.html)
-		- Setelah dilakukan pelatihan, prediksi untuk sampel yang tidak terlihat ($x'$) dapat dibuat dengan menghitung rata-rata prediksi dari semua pohon setiap individu model pada $x'$. [[7]](https://www.ibm.com/think/topics/random-forest)
-     $$\hat{f}=\frac{1}{B}\sum_{b=1}^{B} f_b(x^{'})$$
+		- Setelah dilakukan pelatihan, prediksi untuk sampel yang tidak terlihat ($x'$) dapat dibuat dengan menghitung rata-rata prediksi dari semua pohon setiap individu model pada $x'$. 
+     $$\hat{f}=\frac{1}{B}\sum_{b=1}^{B} f_b(x^{'})$$ [[7]](https://www.ibm.com/think/topics/random-forest)
+     Kelebihan dari Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
+			 - Dengan menggunakan teknik bootstrap aggregating (bagging) dan pemilihan fitur acak, Random Forest dapat mengurangi varians dalam model dan meningkatkan generalisasi pada data baru.
+			 -  Random Forest menggabungkan beberapa pohon keputusan yang independen, ia memiliki kemampuan yang lebih baik untuk menangani noise dan variasi dalam data, sehingga menghasilkan prediksi yang lebih konsisten dan andal.
+			 - Dengan menganalisis sejauh mana setiap fitur berkontribusi dalam memisahkan kelas target, Random Forest dapat memberikan insight berguna tentang fitur mana yang paling informatif.
+			 - Dalam Random Forest, pengambilan sampel acak dan pembobotan kelas dapat digunakan untuk mengurangi efek ketidakseimbangan data dan menghasilkan prediksi yang lebih akurat untuk kelas yang kurang representatif.
+
+			Kekurangan Algoritma Random Forest, yaitu:[[8]](https://dqlab.id/serba-serbi-machine-learning-model-random-forest)
+			 - Random Forest memiliki kemampuan untuk menghasilkan prediksi yang akurat. Namun, interpretabilitas model bisa menjadi tantangan. Karena Random Forest terdiri dari banyak pohon keputusan yang digabungkan, sehingga sulit untuk secara langsung menginterpretasikan pengaruh setiap fitur dalam membuat keputusan. 
+			 - Random Forest memiliki beberapa parameter yang perlu dikonfigurasi, seperti jumlah pohon dalam ensambel, jumlah fitur yang diambil secara acak, dan kriteria pemisahan pada setiap simpul pohon. Memilih parameter yang optimal dapat memerlukan eksperimen dan tuning yang cermat, terutama jika tidak ada pengetahuan sebelumnya tentang dataset yang digunakan.
+			 - Random Forest mungkin menghadapi tantangan dalam menangani data dengan dimensi yang sangat tinggi, yaitu ketika jumlah fitur sangat besar dibandingkan dengan jumlah sampel data yang tersedia. Dalam kasus seperti itu, pengambilan sampel acak dan pemilihan fitur acak mungkin tidak efektif dalam mengekstraksi pola yang relevan dan menghasilkan prediksi yang akurat.
+
 		
 	- **Algoritma Adaptive Boosting**
-	AdaBoost (Adaptive Boosting) adalah algoritma *ensemble learning* yang melatih beberapa *weak learner* secara berulang, dengan memberi bobot lebih besar pada data yang salah diklasifikasikan. Setiap model diberi bobot berdasarkan performanya, lalu digabung menjadi satu model akhir. Proses ini membantu mengurangi bias dan variansi, serta banyak digunakan di bidang seperti computer vision, NLP, dan deteksi penipuan.[[8]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
+	AdaBoost (Adaptive Boosting) adalah algoritma *ensemble learning* yang melatih beberapa *weak learner* secara berulang, dengan memberi bobot lebih besar pada data yang salah diklasifikasikan. Setiap model diberi bobot berdasarkan performanya, lalu digabung menjadi satu model akhir. Proses ini membantu mengurangi bias dan variansi, serta banyak digunakan di bidang seperti computer vision, NLP, dan deteksi penipuan.[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
 
 	<img src="https://almablog-media.s3.ap-south-1.amazonaws.com/image_28_7cf514b000.png" alt="Algoritma AdaBoost" title="Algoritma AdaBoost"> 
 	
 	Algoritma AdaBoost mengacu kepada metode tertentu untuk melakukan pelatihan *classifier* yang di-*boosted*. Pengklasifikasian tersebut adalah pengklasifikasian dalam bentuk, 
      $$F_T(x)=\sum_{t=q}^{T}f_t(x)$$
-     di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[9]](https://aws.amazon.com/id/what-is/boosting/)
+     di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[10]](https://aws.amazon.com/id/what-is/boosting/)
+     
+     Adapun Kelebihan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
+	 - Adaboost dapat secara signifikan meningkatkan akurasi prediksi dalam pemodelan machine learning. Dengan menggabungkan weak learners menjadi strong learner, Adaboost dapat mengatasi kesalahan klasifikasi dan meningkatkan kemampuan prediksi model.
+	 - Adaboost efektif dalam menangani data yang kompleks dan memiliki interaksi fitur yang rumit. Dalam kasus di mana hubungan antara fitur-fitur input dan variabel output tidak sederhana, Adaboost dapat menangkap pola yang lebih kompleks daripada weak learners individu.
+	 - Dengan memberikan bobot pada contoh-contoh yang salah diklasifikasikan, Adaboost dapat mengurangi risiko overfitting. Hal ini membantu model untuk tidak terlalu fokus pada contoh-contoh pelatihan yang sulit dan memperbaiki generalisasi pada data uji.
+	 
+	 Adapun kekurangan dari Algoritma Adaptive Boosting, yaitu:[[9]](https://www.trivusi.web.id/2023/07/algoritma-adaboost.html)
+	 -  Adaboost cenderung sensitif terhadap data yang mengandung noise atau outlier. Kehadiran contoh-contoh yang tidak representatif atau gangguan dapat mempengaruhi pembelajaran dan menghasilkan model yang kurang akurat.
+	 - Jika dataset pelatihan sangat kecil, terdapat risiko overfitting pada Adaboost. Model yang terlalu kompleks dapat dengan mudah "menghafal" contoh-contoh pelatihan dan gagal dalam generalisasi pada data baru.
+	 - Adaboost melibatkan iterasi berulang untuk melatih weak learners dan memperbarui bobot contoh-contoh pelatihan. Oleh karena itu, waktu pelatihan algoritma ini cenderung lebih lama dibandingkan dengan beberapa algoritma machine learning lainnya.
 
 ## Data Understanding
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Diabetes%20Clinical%20Dataset%20Kaggle%20Dataset.png" alt="Diabetes Clinical Dataset Kaggle Dataset" title="Diabetes Clinical Dataset Kaggle Dataset">
@@ -378,11 +399,11 @@ Kesimpulannya adalah model yang digunakan untuk melakukan prediksi **diabetes (b
 
 [7] What Is Random Forest? (n.d.). IBM. Retrieved May 09, 2025, from https://www.ibm.com/think/topics/random-forest
 
-[8] Algoritma AdaBoost: Pengertian, Cara Kerja, dan Kegunaannya. (2023, July 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2023/07/algoritma-adaboost.html
+[8] Machine Learning Model & Tutorialnya Membangunnya. (2023, July 18). DQLab. Retrieved May 09, 2025, from https://dqlab.id/serba-serbi-machine-learning-model-random-forest
 
-[9] Apa itu Boosting? - Penjelasan tentang Boosting dalam Machine Learning? (n.d.). AWS. Retrieved May 09, 2025, from https://aws.amazon.com/id/what-is/boosting/
+[9] Algoritma AdaBoost: Pengertian, Cara Kerja, dan Kegunaannya. (2023, July 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2023/07/algoritma-adaboost.html
 
-
+[10] Apa itu Boosting? - Penjelasan tentang Boosting dalam Machine Learning? (n.d.). AWS. Retrieved May 09, 2025, from https://aws.amazon.com/id/what-is/boosting/
 
 
 
