@@ -94,6 +94,7 @@ Cara kerja algoritma K-Nearest Neighbor adalah sebagai berikut:
      di mana setiap $F_T$ adalah *learner* yang lemah yang mengambil objek $x$ sebagai input dan mengembalikan nilai yang menunjukkan kelas objek. Demikian juga pada pengklasifikasi $T$ merupakan nilai positif jika sampel berada dalam kelas positif, dan negatif jika sebaliknya. [[9]](https://en.wikipedia.org/wiki/AdaBoost#Training 'AdaBoost - Training')
 
 ## Data Understanding
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Diabetes%20Clinical%20Dataset%20Kaggle%20Dataset.png" alt="Diabetes Clinical Dataset Kaggle Dataset" title="Diabetes Clinical Dataset Kaggle Dataset">
 
 Data yang digunakan dalam proyek ini adalah  _dataset_  yang diambil dari Kaggle Dataset  [Diabetes Clinical Dataset(100k rows)](https://www.kaggle.com/datasets/ziya07/diabetes-clinical-dataset100k-rows/data)  dengan kategori  _dataset_, yaitu  _Health Conditions_  dan  _Diabetes_. Dalam  _dataset_  tersebut terdapat sebuah  _file_  atau berkas dengan nama  `diabetes_dataset_with_notes.csv`  yang berekstensi (_file format_)  `.csv`  atau  [comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values "Comma-separated values")  berukuran 26,94 MB.
 
@@ -139,5 +140,42 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
    Berdasarkan gambar tersebut, tidak terdapat *missing value*.
 
 4. **Menangani *Outliers***
+*Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Diabetes - Sebelum" title="Menangani Outliers Diabetes - Sebelum"> 
+Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hypertension`, `heart_disease`, dan `bmi`. 
 
-5. 
+	dan `non diabetes`
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Non%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Non Diabetes - Sebelum" title="Menangani Outliers Non Diabetes - Sebelum">
+Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `hypertension`, `heart_disease`, dan `bmi`. 
+
+	Sehingga dilakukan proses pembersihan *outliers* dengan metode IQR (*Inter Quartile Range*). $$IQR=Q_3-Q_1$$
+   
+	Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan menggunakan,
+   $BatasBawah=Q_1-1.5*IQR$
+   $BatasAtas=Q_3-1.5*IQR$
+   
+   Setelah dilakukan pembersihan *outliers*, dilakukan kembali visualisasi *outliers* untuk melakukan pengecekan kembali sebagai berikut,
+
+`diabetes`
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Diabetes%20-%20Sesudah.png" alt="Menangani Outliers Diabetes - Sesudah" title="Menangani Outliers Diabetes - Sesudah">
+
+`non-diabetes`
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Non%20Diabetes%20-%20Sesudah.png" alt="Menangani Outliers Non Diabetes - Sesudah" title="Menangani Outliers Non Diabetes - Sesudah">
+
+   Setelah dilakukan pembersihan *outliers* menggunakan metode IQR (*Inter Quartile Range*), dapat dilihat bahwa *outliers* telah berkurang pada boxplot di atas. Meskipun *outliers* masih ada pada fitur `age` dan`bmi`, tetapi masih dalam batas aman.
+	
+   Menggabungkan data diabetes dan non diabetes
+```python
+	df_diabet = pd.concat([df_diabetes, df_ndiabetes])
+```
+    
+5. **Univariate Analysis**  
+   Melakukan proses analisis data *univariate* pada fitur-fitur numerik. Proses analisis ini menggunakan bantuan visualisasi histogram untuk masing-masing fitur numerik dan kategorikal.
+
+	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Gender.png" alt="Univariate Analysis Gender" title="Univariate Analysis Gender">
+
+	Mayoritas pasien berjenis kelamin perempuan (58.7%), diikuti oleh laki-laki (41.3%), dan hanya 0.0% atau 16 orang yang dikategorikan sebagai Other
+
+
+
+6. 
