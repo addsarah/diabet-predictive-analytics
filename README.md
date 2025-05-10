@@ -177,6 +177,38 @@ Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan men
 
 	Mayoritas pasien berjenis kelamin perempuan (58.7%), diikuti oleh laki-laki (41.3%), dan hanya 0.0% atau 16 orang yang dikategorikan sebagai Other
 
+	<br>
+	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Location.png" alt="Univariate Analysis Location" title="Univariate Analysis Location">
+	Distribusi pasien tersebar cukup merata di seluruh negara bagian AS. Lokasi dengan jumlah pasien tertinggi antara lain Nebraska, New Jersey, dan North Dakota, masing-masing menyumbang sekitar 2.1% dari total data. Sementara itu, lokasi dengan jumlah pasien paling sedikit adalah Wisconsin (hanya 2 sampel atau 0.0%) dan Virgin Islands (0.9%). Hal ini menunjukkan bahwa sebagian besar data berasal dari wilayah yang beragam, namun terdapat perbedaan jumlah sampel yang signifikan antar lokasi.
+	
+<br>
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Smoking%20History.png" alt="Univariate Analysis Smoking History" title="Univariate Analysis Smoking History">
+Mayoritas data tidak memiliki informasi riwayat merokok (No Info) sebanyak 38.2%, diikuti oleh pasien yang tidak pernah merokok (never) sebesar 34.5%. Sementara itu, kategori lainnya seperti current (masih merokok), former (mantan perokok), not current, dan ever (pernah merokok) memiliki proporsi yang jauh lebih kecil, masing-masing kurang dari 10%. Hal ini menunjukkan bahwa lebih dari setengah data berasal dari pasien yang tidak pernah merokok atau tidak memiliki informasi lengkap terkait kebiasaan merokok.
+
+<br>
+<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis%20Race.png" alt="Univariate Analysis Race" title="Univariate Analysis Race">
+Setiap kategori ras seperti AfricanAmerican, Caucasian, Hispanic, Asian, dan Other memiliki jumlah sampel yang hampir sama, dengan masing-masing berkisar 19.8% hingga 20.1%. Hal ini menunjukkan bahwa data telah dikonstruksi secara proporsional antar kelompok ras, sehingga tidak terjadi ketimpangan distribusi yang dapat memengaruhi performa model secara bias terhadap kelompok tertentu.
+
+<br>
+	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Univariate%20Analysis.png" alt="Univariate Analysis" title="Univariate Analysis">
+	Dari data histogram di atas diperoleh informasi, yaitu:
+
+- `year` menunjukkan seluruh data diambil mayoritas pada tahun 2019.
+
+- `age` memiliki distribusi yang relatif merata dari usia muda hingga tua, tetapi terdapat lonjakan signifikan pada usia sekitar 80 tahun, menandakan banyaknya pasien berusia lanjut.
+
+- `hypertension` didominasi oleh nilai 0, yang berarti sebagian besar pasien tidak memiliki riwayat hipertensi.
+
+- `heart_disease` juga sangat didominasi oleh nilai 0, menunjukkan bahwa sebagian besar pasien tidak memiliki riwayat penyakit jantung.
+
+- `bmi` memiliki distribusi yang mendekati normal, namun terdapat lonjakan tinggi di satu nilai (sekitar 28–30).
+
+- `hbA1c_level` memiliki persebaran data yang beragam, tetapi paling sering berada pada level 6, yang merupakan batas prediabetes.
+
+- `blood_glucose_level` menunjukkan beberapa lonjakan pada nilai tertentu (sekitar 100–150), menunjukkan data tidak tersebar merata dan cenderung dikelompokkan.
+
+- `diabetes` sangat tidak seimbang, dimana mayoritas data menunjukkan pasien tidak menderita diabetes (nilai 0), dan hanya sebagian kecil yang menderita diabetes (nilai 1).
 
 
-6. 
+6. **Multivariate Analysis**
+7. **Correlation Matrix with Heatmap**
