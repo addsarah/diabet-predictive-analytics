@@ -154,11 +154,38 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
 - `race` : Kategori ras pasien (contoh: Asian, Hispanic, AfricanAmerican, dll).
 
 2. **Deskripsi Statistik**
-<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Deskripsi%20Statistik.png" alt="Deskripsi Statistik" title="Deskripsi Statistik">
+
+|                       | year      | age       | hypertension | heart_disease | bmi       | hbA1c_level | blood_glucose_level | diabetes  |
+|-----------------------|-----------|-----------|--------------|----------------|-----------|-------------|----------------------|-----------|
+| **count**             | 100000.00 | 100000.00 | 100000.00    | 100000.00      | 100000.00 | 100000.00   | 100000.00            | 100000.00 |
+| **mean**              | 2018.36   | 41.89     | 0.0748       | 0.0394         | 27.32     | 5.53        | 138.06               | 0.0850    |
+| **std**               | 1.35      | 22.52     | 0.2632       | 0.1946         | 6.64      | 1.07        | 40.71                | 0.2788    |
+| **min**               | 2015.00   | 0.08      | 0.00         | 0.00           | 10.01     | 3.5         | 80.00                | 0.00      |
+| **25%**               | 2019.00   | 24.00     | 0.00         | 0.00           | 23.63     | 4.8         | 100.00               | 0.00      |
+| **50% (median)**      | 2019.00   | 43.00     | 0.00         | 0.00           | 27.32     | 5.8         | 140.00               | 0.00      |
+| **75%**               | 2019.00   | 60.00     | 0.00         | 0.00           | 29.58     | 6.2         | 159.00               | 0.00      |
+| **max**               | 2022.00   | 80.00     | 1.00         | 1.00           | 95.69     | 9.0         | 300.00               | 1.00      |
+
 
 3. **Menangani Missing Value**
-<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Missing%20Value.png" alt="Missing Value" title="Missing Value">
-   Berdasarkan gambar tersebut, tidak terdapat *missing value*.
+
+|                     | 0 |
+|---------------------|----------------|
+| year                | 0              |
+| gender              | 0              |
+| age                 | 0              |
+| location            | 0              |
+| hypertension        | 0              |
+| heart_disease       | 0              |
+| smoking_history     | 0              |
+| bmi                 | 0              |
+| hbA1c_level         | 0              |
+| blood_glucose_level | 0              |
+| diabetes            | 0              |
+| race                | 0              |
+| **dtype**           | **int64**      |
+
+   Berdasarkan tabel tersebut, tidak terdapat *missing value*.
 <br>
 
 4. **Menangani *Outliers***
@@ -283,13 +310,34 @@ Pada tahap persiapan data atau *data preparation* dilakukan berdasarkan penjelas
 	scaler.fit(xTrain[numericalFeatures])
 	xTrain[numericalFeatures] = scaler.transform(xTrain.loc[:, numericalFeatures])
 	```
-	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Standarisasi%20pada%20Fitur%20Numerik.png" alt="Standarisasi pada Fitur Numerik" title="Standarisasi pada Fitur Numerik">
 
-	```python
+
+|       | age      | bmi      | hbA1c_level | blood_glucose_level |
+|-------|----------|----------|-------------|----------------------|
+| 57684 | -1.159412 | -1.056342 | 0.576090    | 0.462202             |
+| 51469 | -0.028597 | 0.082958  | -0.475589   | -0.941541            |
+| 59092 | -0.933249 | -0.899889 | 0.671697    | 0.206976             |
+| 72187 | 0.559428  | 1.129990  | 0.193661    | 0.462202             |
+| 34182 | 0.876056  | 0.227376  | 0.480483    | 0.538770             |
+
+
+
+
+```python
 	xTrain[numericalFeatures].describe().round(4)
-	```
+```
 	
-	<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Deskripsi%20Statistik%20setelah%20Standarisasi.png" alt="Deskripsi Statistik setelah Standarisasi" title="Deskripsi Statistik setelah Standarisasi">
+	
+|                       | age      | bmi      | hbA1c_level | blood_glucose_level |
+|-----------------------|----------|----------|-------------|----------------------|
+| **count**             | 59859.000 | 59859.000 | 59859.000    | 59859.000             |
+| **mean**              | -0.0000   | 0.0000    | 0.0000       | -0.0000               |
+| **std**               | 1.0000    | 1.0000    | 1.0000       | 1.0000                |
+| **min**               | -1.7891   | -2.2839   | -1.9097      | -1.4520               |
+| **25%**               | -0.7976   | -0.6191   | -0.6668      | -0.9415               |
+| **50% (median)**      | -0.0286   | 0.2274    | 0.2893       | 0.0794                |
+| **75%**               | 0.7856    | 0.3517    | 0.6717       | 0.5643                |
+| **max**               | 1.8259    | 4.5158    | 3.3487       | 4.1630                |
 
 
 ## Modelling
@@ -360,7 +408,12 @@ for name, model in modelDict.items():
 ```
 
 
-<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Evaluation.png" alt="Evaluation" title="Evaluation">
+|           | train     | test      |
+|-----------|-----------|-----------|
+| **KNN**   | 0.000035  | 0.000034  |
+| **RF**    | 0.000016  | 0.000016  |
+| **Boosting** | 0.000053  | 0.000048  |
+
 
 Dari data tabel tersebut dapat divisualisasikan pada grafik batang berikut.
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Evaluation%20Graph.png" alt="Evaluation Graph" title="Evaluation Graph">
@@ -374,7 +427,12 @@ Dari visualisasi diagram di atas dapat disimpulkan bahwa,
 3. Model dengan algoritma Adaptive Boosting mengalami error yang lebih besar dibandingkan Random Forest dan K-Nearest Neighbor, dengan nilai training error sebesar 0.000053, dan testing error sebesar 0.000048.
 
 Selanjutnya adalah pengujian prediksi dengan menggunakan beberapa nilai diabetes `df_diabet` dari data uji (*testing*)
-<img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Testing%20Model.png" alt="Testing Model" title="Testing Model">
+
+
+|       | y_true | prediksi_KNN | prediksi_RF | prediksi_Boosting |
+|-------|--------|---------------|-------------|--------------------|
+| 86159 |   0    |       0       |      0      |         0          |
+
 
 Dapat dilihat bahwa prediksi pada model dengan algoritma **Random Forest** memberikan hasil yang **paling mendekati nilai `y_true`** jika dibandingkan dengan model algoritma lainnya.
   
