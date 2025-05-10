@@ -1,4 +1,4 @@
-﻿# Laporan Proyek Pertama Machine Learning Expert Dicoding: Predictive Analytics - Diabet (split diabet n non) - Sarah Adibah
+# Laporan Proyek Pertama Machine Learning Expert Dicoding: Predictive Analytics - Diabet (split diabet n non) - Sarah Adibah
 
 ## Domain Proyek
 
@@ -360,3 +360,21 @@ Meskipun dalam kasus ini seluruh model memberikan hasil prediksi yang identik de
 
 Kesimpulannya adalah model yang digunakan untuk melakukan prediksi **diabetes (binary classification)** memberikan hasil terbaik ketika menggunakan algoritma **Random Forest**, karena mampu menghasilkan prediksi yang akurat dan konsisten dengan nilai `y_true`.
 
+## Referensi
+[1] Algoritma AdaBoost: Pengertian, Cara Kerja, dan Kegunaannya. (2023, July 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2023/07/algoritma-adaboost.html
+
+[2] Algoritma Random Forest: Pengertian dan Kegunaannya. (2022, September 17). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2022/08/algoritma-random-forest.html
+
+[3] Apa algoritma k-Nearest Neighbors? (n.d.). IBM. Retrieved May 09, 2025, from https://www.ibm.com/id-id/think/topics/knn
+
+[4] Freund, Y., & Schapire, R. (n.d.). AdaBoost. Wikipedia. Retrieved May 09, 2025, from https://en.wikipedia.org/wiki/AdaBoost#Training
+
+[5] Global Diabetes Data & Insights. (n.d.). IDF Diabetes Atlas. Retrieved May 09, 2025, from https://diabetesatlas.org/data-by-location/global/
+
+[6] Random forest. (n.d.). Wikipedia. Retrieved May 09, 2025, from https://en.wikipedia.org/wiki/Random_forest#Bagging
+
+[7] Saatnya Mengatur Si Manis – Sehat Negeriku. (2024, January 10). Sehat Negeriku. Retrieved May 09, 2025, from https://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis/
+
+[8] Yuk Kenali Apa itu Algoritma K-Nearest Neighbors (KNN). (2023, September 24). Trivusi. Retrieved May 09, 2025, from https://www.trivusi.web.id/2022/06/algoritma-knn.html
+
+[9] Zuliasyari, L. (2025, February 10). Fleksibilitas: Kunci Keunggulan Algoritma K-Nearest Neighbors (KNN). DQLab. Retrieved May 09, 2025, from https://dqlab.id/fleksibilitas-kunci-keunggulan-algoritma-k-nearest-neighbors-knn
