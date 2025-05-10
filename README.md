@@ -189,12 +189,15 @@ Dari gambar di atas dapat dilihat bahwa terdapat 100.000 baris data dan 12 kolom
 <br>
 
 4. **Menangani *Outliers***
-*Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
+
+	*Outliers* merupakan sampel data yang nilainya berada sangat jauh dari cakupan umum data utama yang dapat merusak hasil analisis data. Berikut adalah visualisasi *boxplot* untuk melakukan pengecekan keberadaan *outliers* pada `diabetes` 
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Diabetes - Sebelum" title="Menangani Outliers Diabetes - Sebelum"> 
-	Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hypertension`, `heart_disease`, dan `bmi`. 
+	
+ Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `age`, `hypertension`, `heart_disease`, dan `bmi`. 
 
 
-	`non-diabetes`
+	
+ `non-diabetes`
 <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Menangani%20Outliers%20Non%20Diabetes%20-%20Sebelum.png" alt="Menangani Outliers Non Diabetes - Sesudah" title="Menangani Outliers Non Diabetes - Sesudah">
 
 Berdasarkan gambar tersebut, terdapat *outliers* pada fitur `year`, `hypertension`, `heart_disease`, dan `bmi`. 
@@ -264,16 +267,21 @@ Kemudian membuat batas bawah dan batas atas untuk mencakup *outliers* dengan men
  - `diabetes` sangat tidak seimbang, dimana mayoritas data menunjukkan pasien tidak menderita diabetes (nilai 0), dan hanya sebagian kecil yang menderita diabetes (nilai 1).
 
 
- - **Multivariate Analysis**  
+ 6. **Multivariate Analysis**  
    Melakukan visualisasi distribusi data pada fitur-fitur numerik dari *dataframe* `diabet`. Visualisasi dilakukan dengan bantuan *library* `seaborn` `pairplot` menggunakan parameter `diag_kind`, yaitu `kde`, untuk melihat perkiraan distribusi probabilitas antar fitur numerik.
    <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Multivariate%20Analysis.png" alt="Multivariate Analysis" title="Multivariate Analysis">
    
- - **Correlation Matrix with Heatmap**
-		Melakukan pengecekan korelasi antar fitur numerik dengan menggunakan visualisasi diagram *heatmap* *correlation matrix*.
+7. **Correlation Matrix with Heatmap**
+
+	Melakukan pengecekan korelasi antar fitur numerik dengan menggunakan visualisasi diagram *heatmap* *correlation matrix*.
  <img src="https://raw.githubusercontent.com/addsarah/diabet-predictive-analytics/refs/heads/main/img/Correlation%20Matrix%20with%20Heatmap.png" alt="Correlation Matrix with Heatmap" title="Correlation Matrix with Heatmap">
-	  Dapat dilihat pada diagram *heatmap* di atas memiliki *range* atau rentang angka dari 1.0 hingga 0.08 dengan keterangan sebagai berikut,
-	 - Jika semakin mendekati 1, maka korelasi antar fitur numerik semakin kuat bernilai positif.
+
+   Dapat dilihat pada diagram *heatmap* di atas memiliki *range* atau rentang angka dari 1.0 hingga 0.08 dengan keterangan sebagai berikut,
+
+   - Jika semakin mendekati 1, maka korelasi antar fitur numerik semakin kuat bernilai positif.
+     
    - Jika semakin mendekati 0, maka korelasi antar fitur numerik semakin rendah.
+     
    - Jika semakin mendekati -1, maka korelasi antar fitur numerik semakin kuat bernilai negatif.
    
    Jika korelasi bernilai positif, berarti nilai kedua fitur numerik cenderung meningkat bersama-sama.  
