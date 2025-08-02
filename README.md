@@ -6,7 +6,7 @@
  
 Proyek ini bertujuan untuk memprediksi apakah seseorang menderita diabetes atau tidak dengan menggunakan fitur-fitur seperti usia, riwayat merokok, tekanan darah, indeks massa tubuh (_BMI_), kadar HbA1c, dan kadar glukosa darah. Data yang digunakan mencakup beragam ras, lokasi, dan kondisi kesehatan pasien, sehingga dapat digunakan untuk membangun model klasifikasi yang dapat membantu deteksi dini diabetes secara lebih akurat.
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Frri.co.id%2Finfografis%2F204%2Fprevalensi-diabetes-di-indonesia&psig=AOvVaw1zt7Nqj1gXItE1hmci6Slf&ust=1754236583800000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNjJ8dS-7I4DFQAAAAAdAAAAABAE" alt="Data Diabetes" title="Data Diabetes" width="100%">
+<img src="https://cdn.rri.co.id/infografis/images/1676072537-prevalensi_diabetes_di_indonesia.jpg" alt="Data Diabetes" title="Data Diabetes" width="100%">
 
 Diabetes merupakan salah satu penyakit kronis yang menjadi perhatian global karena jumlah penderitanya yang terus meningkat dari tahun ke tahun. Data dari International Diabetes Federation (IDF) menunjukkan bahwa pada tahun 2021, terdapat sekitar 537 juta penderita diabetes di seluruh dunia. Angka ini diproyeksikan akan meningkat menjadi 643 juta pada tahun 2030 dan mencapai 783 juta pada tahun 2045. [[1]](http://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis/)
 
